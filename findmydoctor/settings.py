@@ -16,7 +16,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure--a2xt)b!gtvlz9!f*!4@sd)pzk7=b97_z5==@3cm6b3uej5n8j')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG', 'True') == 'True'
+DEBUG = False
 
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
 
@@ -92,14 +92,14 @@ CHANNEL_LAYERS = {
 
 # Database Configuration (Use PostgreSQL in production if needed)
 DATABASES = {
-    'default': {
-        'ENGINE': os.getenv('DB_ENGINE', 'django.db.backends.sqlite3'),
-        'NAME': os.getenv('DB_NAME', BASE_DIR / 'db.sqlite3'),
-        'USER': os.getenv('DB_USER', ''),
-        'PASSWORD': os.getenv('DB_PASSWORD', ''),
-        'HOST': os.getenv('DB_HOST', 'localhost'),
-        'PORT': os.getenv('DB_PORT', '5432'),
-    }
+'default': {
+'ENGINE': 'django.db.backends.postgresql_psycopg2',
+'NAME': 'myproject',
+'USER': 'myprojectuser',
+'PASSWORD': 'password',
+'HOST': 'localhost',
+'PORT': '',
+}
 }
 
 # Password validation
